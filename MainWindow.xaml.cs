@@ -20,6 +20,10 @@ namespace CalculatorWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private double num1 = 0;
+        private double num2 = 0;
+        private string operation = null;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -59,7 +63,31 @@ namespace CalculatorWPF
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
-            Display.Text = "0";
+            var button = (Button)sender;
+
+            //num1 = Convert.ToDouble(Display.Text);
+            operation = button.Content.ToString();
+            if(operation == "=")
+            {
+                CalculateResult();
+                return;
+            }            
+            Display.Text += operation;
+        }
+
+        private void CalculateResult()
+        {
+            double result = 0;
+            string[] numbers = Display.Text.Split(operation);
+            num1 = Convert.ToDouble(numbers[0]);
+            num2 = Convert.ToDouble(numbers[1]);
+            
+            if(operation == "+")
+            {
+                result = num1 + num2;
+            }
+
+            Display.Text = result.ToString();
         }
     }
 }
