@@ -28,6 +28,15 @@ namespace CalculatorWPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
+
+            if(button.Content.ToString() == ".")
+            {
+                if (!Display.Text.Contains("."))
+                {
+                    Display.Text += button.Content.ToString();
+                }
+                return;
+            }
             
             if(Display.Text == "0")
             {
