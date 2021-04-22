@@ -25,18 +25,9 @@ namespace CalculatorWPF
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void NumericButton_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
-
-            if(button.Content.ToString() == ".")
-            {
-                if (!Display.Text.Contains("."))
-                {
-                    Display.Text += button.Content.ToString();
-                }
-                return;
-            }
             
             if(Display.Text == "0")
             {
@@ -46,6 +37,29 @@ namespace CalculatorWPF
             {
                 Display.Text += button.Content.ToString();
             }            
+        }
+
+        private void PeriodButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+
+            if (button.Content.ToString() == ".")
+            {
+                if (!Display.Text.Contains("."))
+                {
+                    Display.Text += button.Content.ToString();
+                }              
+            }
+        }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            Display.Text = "0";
+        }
+
+        private void OperationButton_Click(object sender, RoutedEventArgs e)
+        {
+            Display.Text = "0";
         }
     }
 }
