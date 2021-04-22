@@ -79,6 +79,8 @@ namespace CalculatorWPF
         {
             double result = 0;
             string[] numbers = Display.Text.Split(operation);
+            
+            //the bugs are someshere here, try to fix them
             num1 = Convert.ToDouble(numbers[0]);
             num2 = Convert.ToDouble(numbers[1]);
             
