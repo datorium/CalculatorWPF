@@ -75,6 +75,11 @@ namespace CalculatorWPF
             Display.Text += operation;
         }
 
+        private void ResultButton_Click(object sender, RoutedEventArgs e)
+        {
+            CalculateResult();
+        }
+
         private void CalculateResult()
         {
             double result = 0;
